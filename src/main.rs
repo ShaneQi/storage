@@ -52,7 +52,7 @@ fn save_file(output_path: String, entries: Entries) -> IronResult<Response> {
                 &temp_file.content_type.1.to_lowercase();
             println!("Saving file: {}", file_name);
             let file_path = output_path + &file_name;
-            let _ = fs::rename(&temp_file.path, file_path);
+            let _ = fs::copy(&temp_file.path, file_path);
             return Ok(Response::with((
                 status::Ok,
                 Header(headers::ContentType::json()),
