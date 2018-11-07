@@ -2,6 +2,7 @@
 docker run \
 -d \
 --name storage \
+--network GoldenArches \
 -v `pwd`:/storage_server \
 -v /home/shane/persistence/public/storage:/storage \
 -w /storage_server \
